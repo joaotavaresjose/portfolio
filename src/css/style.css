@@ -258,7 +258,7 @@
       justify-content: center;
       gap: 6vw;
       padding: 80px 7vw 0 7vw;
-      min-height: 50vh;
+      min-height: 70vh;
       position: relative;
       z-index: 1;
       overflow: hidden; /* Alterado para hidden para conter animações */
@@ -273,6 +273,7 @@
 .banner-photo, .banner-content {
     z-index: 2; /* Should be above space-animation-container */
     position: relative; /* Needed for z-index to work */
+    margin-bottom: 15px;
 }
     /* Animated floating particles */
     .particles {
@@ -1602,7 +1603,7 @@
   background-color: #fff;
   border-radius: 50%;
   box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--neon-blue); /* Brilho neon */
-  animation: twinkle 2s infinite alternate;
+  animation: twinkle 0.5s infinite alternate;
 }
 
 /* Posicionamento para as estrelas - ajuste como preferir */
