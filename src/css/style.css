@@ -276,13 +276,13 @@
     margin-bottom: 15px;
 }
     /* Animated floating particles */
-    .particles {
+    /*.particles {
       position: absolute;
       inset: 0;
       pointer-events: none;
       z-index: 1; /* Acima da animação de foguetes/estrelas, abaixo do conteúdo */
-    }
-    .particle {
+   /* }*/
+    /*.particle {
       position: absolute;
       border-radius: 50%;
       opacity: 0.18;
@@ -299,7 +299,7 @@
       0% { transform: translateY(0) scale(1);}
       50% { transform: translateY(-40px) scale(1.2);}
       100% { transform: translateY(0) scale(1);}
-    }
+    }*/
     .banner-photo {
       position: relative;
       width: 320px;
