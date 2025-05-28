@@ -350,7 +350,7 @@
     .banner-content {
       max-width: 540px;
       z-index: 2;
-      /*animation: fade-in-right 1.2s cubic-bezier(.77,0,.18,1) both;*/
+      animation: fade-in-right 1.2s cubic-bezier(.77,0,.18,1) both;
     }
     @keyframes fade-in-right {
       0% { opacity: 0; transform: translateX(60px);}
