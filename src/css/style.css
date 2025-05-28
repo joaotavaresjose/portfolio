@@ -603,10 +603,11 @@
       flex-direction: column;
       gap: 10px;
       align-items: center;
+      padding: 10px;
     }
     .skill-card {
-      min-width: 90vw;
-      max-width: 98vw;
+      min-width: 80vw;
+      max-width: 80vw;
       width: 100%;
       flex: 1 1 100%;
       padding: 12px 6px 10px 6px;
