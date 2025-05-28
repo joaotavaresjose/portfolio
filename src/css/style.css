@@ -1607,6 +1607,10 @@
 .star.s3 { top: 50%; left: 15%; animation-delay: 1s; }
 .star.s4 { top: 75%; left: 80%; animation-delay: 0.7s; }
 .star.s5 { top: 20%; left: 50%; animation-delay: 0.3s; width: 3px; height: 3px; }
+.star.s6 { top: 60%; left: 40%; animation-delay: 0.9s; width: 4px; height: 4px; }
+.star.s7 { top: 85%; left: 30%; animation-delay: 0.4s; width: 5px; height: 5px; }
+.star.s8 { top: 40%; left: 60%; animation-delay: 0.6s; width: 6px; height: 6px; }
+.star.s9 { top: 15%; left: 80%; animation-delay: 0.8s; width: 7px; height: 7px; }
 
 
 @keyframes twinkle {
