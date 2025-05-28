@@ -1,0 +1,6 @@
+{
+    "editor.bracketPairColorization.enabled": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "liveServer.settings.port": 5502,
+    "CodeGPT.apiKey": "CodeGPT Plus Beta"
+}

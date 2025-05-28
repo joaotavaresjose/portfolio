@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="shortcut icon" href="../img/logotipo.png" type="image/x-icon">
+  <title>JTJ - Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+ 
+  <!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Inicialização segura (INSIRA SUA PUBLIC KEY AQUI)
+    emailjs.init("XHpUnYz8OFZeg8WuV"); // <-- substitua por sua public key real
+
+    const form = document.getElementById("contact-form");
+    const status = document.querySelector(".form-status");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Enviar o formulário
+      emailjs.sendForm(
+        "service_jzbj6il",    // <-- substitua por seu service ID
+        "template_gx40b7m",   // <-- substitua por seu template ID
+        this
+      ).then(
+        function () {
+          status.textContent = "E-mail enviado com sucesso!";
+          status.style.color = "green";
+          form.reset();
+        },
+        function (error) {
+          status.textContent = "Erro ao enviar o e-mail.";
+          status.style.color = "red";
+          console.error("FAILED...", error);
+        }
+      );
+    });
+  });
+</script>
+
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="../img/logotipo.png" alt="" width="60" height="60"></div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="nav">
+      <a href="#home">HOME</a>
+      <a href="#sobre">SOBRE</a>
+      <a href="#habilidades">HABILIDADES</a>
+      <a href="#projecto">PROJECTO</a>
+      <a href="#contacto">CONTACTO</a>
+      <button class="btn-neon">BAIXAR CV</button>
+    </nav>
+    <div class="overlay" id="overlay"></div>
+  </header>
+  
+    <section class="banner" id="home">
+
+    <div class="space-animation-container">
+      <!-- Rockets (from previous step) -->
+      <div class="rocket r1"></div>
+      <div class="rocket r2"></div>
+      <div class="rocket r3"></div>
+      <div class="rocket r4"></div>
+      <div class="rocket r5"></div>
+
+      <img src="../img/astronauta06.png" alt="Astronauta flutuando no espaço" class="ship ship1">
+      <img src="../img/nav.png" alt="Astronauta flutuando no espaço" class="ship ship3">
+
+      <!-- Stars (from previous step) -->
+      <div class="star s1"></div>
+      <div class="star s2"></div>
+      <div class="star s3"></div>
+      <div class="star s4"></div>
+      <div class="star s5"></div>
+      <div class="star s6"></div>
+      <div class="star s7"></div>
+      <div class="star s8"></div>
+      <div class="star s9"></div>
+      <div class="star s10"></div>
+      <div class="star s11"></div>
+      <div class="star s12"></div>
+      <div class="star s13"></div>
+      <div class="star s14"></div>
+      <div class="star s15"></div>
+      <div class="star s16"></div>
+      <div class="star s17"></div>
+      <div class="star s18"></div>
+      <div class="star s19"></div>
+      <div class="star s20"></div>
+
+      <!-- Planets (New) -->
+      <div class="planet p1"></div>
+      <div class="planet p2"></div>
+      <div class="planet p3"></div>
+
+    </div>
+
+    <div class="particles">
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+      <div class="particle p4"></div>
+      <div class="particle p5"></div>
+    </div>
+    <div class="banner-photo">
+      <div class="neon-frame"></div>
+      <img src="../img/personal.jpeg" alt="Foto de perfil">
+    </div>
+    <div class="banner-content">
+      <h1 class="animate-text">Eu sou um</h1>
+      <h2>Desenvolvedor<br>FRONT-END</h2>
+      <p>Criando experiências digitais imersivas..</p>
+      <div class="banner-buttons">
+        <button class="btn-neon" >CONTACTO</button>
+        <button class="btn-neon" >SOBRE MIM</button>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="about"  id="sobre">
+    <div class="about-particles">
+      <div class="about-particle p1"></div>
+      <div class="about-particle p2"></div>
+      <div class="about-particle p3"></div>
+      <div class="about-particle p4"></div>
+      <div class="about-particle p5"></div>
+
+      <!-- Rockets for About Section (New) -->
+      <div class="about-rocket ar1"></div>
+      <div class="about-rocket ar2"></div>
+      <div class="about-rocket ar3"></div>
+      <div class="about-rocket ar4"></div>
+      <div class="about-rocket ar5"></div>
+
+    </div>
+
+    <div class="about-container scroll-animate">
+      <!-- Astronauta Flutuante Adicionado -->
+    <img src="../img/austronauta02.png" alt="Astronauta flutuando no espaço" class="floating-astronaut">
+
+     <!-- Astronauta Flutuante Adicionado -->
+    <img src="../img/planet02.png" alt="Astronauta flutuando no espaço" class="floating-astronaut2">
+
+    <!-- Astronauta Flutuante Adicionado -->
+    <img src="../img/astronauta04.png" alt="Astronauta flutuando no espaço" class="floating-astronaut3">
+
+     <img src="../img/nav.png" alt="Astronauta flutuando no espaço" class="ship ship3">
+      <div class="about-photo">
+        <img src="../img/personal.jpeg" alt="Minha foto">
+      </div>
+      <div class="about-content">
+
+        <h2 id="about-typer-title" class="animate-text"></h2>
+        <p>
+          Olá! Meu nome é João Tavares José, sou desenvolvedor Front-End apaixonado por criar experiências digitais modernas, interativas e acessíveis. Tenho experiência com HTML, CSS, JavaScript, React e interfaces animadas. Busco sempre unir design e tecnologia para entregar resultados inovadores e impactantes.
+        </p>
+      </div>
+    </div>
+
+  </section>
+<!-- ... (rest of the HTML remains the same) ... -->
+
+
+  <section class="skills" id="habilidades">
+     <!-- Stars (from previous step) -->
+      <div class="star s1"></div>
+      <div class="star s2"></div>
+      <div class="star s3"></div>
+      <div class="star s4"></div>
+      <div class="star s5"></div>
+      <div class="star s6"></div>
+      <div class="star s7"></div>
+      <div class="star s8"></div>
+      <div class="star s9"></div>
+      <div class="star s10"></div>
+      <div class="star s11"></div>
+      <div class="star s12"></div>
+      <div class="star s13"></div>
+      <div class="star s14"></div>
+      <div class="star s15"></div>
+      <div class="star s16"></div>
+      <div class="star s17"></div>
+      <div class="star s18"></div>
+      <div class="star s19"></div>
+      <div class="star s20"></div>
+
+  <div class="skills-container scroll-animate">
+    <h2 class="skills-title animate-text">Minhas Habilidades</h2>
+    <div class="skills-list">
+      <div class="skill-card html">
+        <span class="skill-icon">&lt;/&gt;</span>
+        <h3>HTML5</h3>
+        <p style="text-align: justify;">Estruturação semântica e acessível para web moderna.</p>
+      </div>
+      <div class="skill-card css">
+        <span class="skill-icon">#</span>
+        <h3>CSS3</h3>
+        <p>Estilização avançada, animações e layouts responsivos.</p>
+      </div>
+      <div class="skill-card js">
+        <span class="skill-icon">JS</span>
+        <h3>JavaScript</h3>
+        <p>Interatividade, lógica e manipulação dinâmica de interfaces.</p>
+      </div>
+      <div class="skill-card react">
+        <span class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <ellipse cx="16" cy="16" rx="2.5" ry="2.5" fill="#00f0ff"/>
+            <ellipse cx="16" cy="16" rx="12" ry="4.5" stroke="#00f0ff" stroke-width="2" fill="none"/>
+            <ellipse cx="16" cy="16" rx="12" ry="4.5" stroke="#00f0ff" stroke-width="2" fill="none" transform="rotate(60 16 16)"/>
+            <ellipse cx="16" cy="16" rx="12" ry="4.5" stroke="#00f0ff" stroke-width="2" fill="none" transform="rotate(120 16 16)"/>
+          </svg>
+        </span>
+        <h3>React</h3>
+        <p>Componentização, SPA e interfaces modernas e performáticas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="projecto">
+   <!-- Stars (from previous step) -->
+      <div class="star s1"></div>
+      <div class="star s2"></div>
+      <div class="star s3"></div>
+      <div class="star s4"></div>
+      <div class="star s5"></div>
+      <div class="star s6"></div>
+      <div class="star s7"></div>
+      <div class="star s8"></div>
+      <div class="star s9"></div>
+      <div class="star s10"></div>
+      <div class="star s11"></div>
+      <div class="star s12"></div>
+      <div class="star s13"></div>
+      <div class="star s14"></div>
+      <div class="star s15"></div>
+      <div class="star s16"></div>
+      <div class="star s17"></div>
+      <div class="star s18"></div>
+      <div class="star s19"></div>
+      <div class="star s20"></div>
+
+  <div class="projects-particles">
+    <div class="projects-particle p1"></div>
+    <div class="projects-particle p2"></div>
+    <div class="projects-particle p3"></div>
+    <div class="projects-particle p4"></div>
+    <div class="projects-particle p5"></div>
+  </div>
+  <div class="projects-container scroll-animate">
+    <h2 style="text-align: center;margin: auto;">Meus Projetos</h2>
+    <p>Confira alguns dos meus projetos mais recentes:</p>
+    <div class="project-cards">
+      <div class="project-card">
+        <img src="project1.jpg" alt="Projeto 1">
+        <h3>Projeto 1</h3>
+        <p>Descrição breve do projeto 1.</p>
+        <a href="#" class="btn-neon">Ver Projeto</a>
+      </div>
+      <div class="project-card">
+        <img src="project2.jpg" alt="Projeto 2">
+        <h3>Projeto 2</h3>
+        <p>Descrição breve do projeto 2.</p>
+        <a href="#" class="btn-neon">Ver Projeto</a>
+      </div>
+      <div class="project-card">
+        <img src="project3.jpg" alt="Projeto 3">
+        <h3>Projeto 3</h3>
+        <p>Descrição breve do projeto 3.</p>
+        <a href="#" class="btn-neon">Ver Projeto</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="contact" id="contacto">
+  <div class="contact-particles">
+    <div class="contact-particle p1"></div>
+    <div class="contact-particle p2"></div>
+    <div class="contact-particle p3"></div>
+    <div class="contact-particle p4"></div>
+    <div class="contact-particle p5"></div>
+  </div>
+  <!-- Astronauta Flutuante Adicionado -->
+    <img src="../img/nav.png" alt="Astronauta flutuando no espaço" class="ship ship1">
+    <img src="../img/nav.png" alt="Astronauta flutuando no espaço" class="ship ship2">
+    <img src="../img/nav.png" alt="Astronauta flutuando no espaço" class="ship ship3">
+
+      <!-- Astronauta Flutuante Adicionado -->
+    <img src="../img/austronauta05.png" alt="Astronauta flutuando no espaço" class="floating-astronaut4">
+
+     <!-- Astronauta Flutuante Adicionado -->
+    <img src="../img/planet03.png" alt="Astronauta flutuando no espaço" class="floating-astronaut5">
+
+    <!-- Astronauta Flutuante Adicionado -->
+    <img src="../img/planet04.png" alt="Astronauta flutuando no espaço" class="floating-astronaut6">
+
+     <!-- Astronauta Flutuante Adicionado -->
+    <img src="../img/astronauta06.png" alt="Astronauta flutuando no espaço" class="floating-astronaut7">
+    
+
+  <div class="contact-container scroll-animate" id="contact-container">
+    <div class="contact-info">
+      <h2>Contato</h2>
+      <p>Quer conversar sobre um projeto, parceria ou tirar dúvidas? Fique à vontade para me chamar!</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:seuemail@email.com">engjoaotavaresjose@email.com</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/+244950968365" target="_blank">+244 999-999-999</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/seulinkedin" target="_blank">linkedin.com/in/seulinkedin</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/seugithub" target="_blank">github.com/seugithub</a></li>
+      </ul>
+      <div class="contact-social">
+        <a href="https://wa.me/5599999999999" target="_blank" title="WhatsApp"><img src="whatsapp.svg" alt="WhatsApp"></a>
+        <a href="https://www.linkedin.com/in/jo%C3%A3o-tavares-jos%C3%A9-33176235a/" target="_blank" title="LinkedIn"><img src="linkedin.svg" alt="LinkedIn"></a>
+        <a href="https://github.com/seugithub" target="_blank" title="GitHub"><img src="github.svg" alt="GitHub"></a>
+      </div>
+    </div>
+    <form class="contact-form" autocomplete="off" id="contact-form">
+      <h3>Envie uma mensagem</h3>
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
+      <button type="submit" class="btn-neon">Enviar</button>
+      <span class="form-status"></span>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container scroll-animate">
+    <div class="footer-brand">
+      <img src="../img/logotipo.png" alt="" width="48" height="48">
+      <p>© 2025 TAVARES. Todos os direitos reservados.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#projectos">Projetos</a>
+      <a href="#contacto">Contato</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://wa.me/5599999999999" target="_blank" title="WhatsApp"><img src="whatsapp.svg" alt="WhatsApp"></a>
+      <a href="https://linkedin.com/in/seulinkedin" target="_blank" title="LinkedIn"><img src="linkedin.svg" alt="LinkedIn"></a>
+      <a href="https://github.com/seugithub" target="_blank" title="GitHub"><img src="github.svg" alt="GitHub"></a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/particles.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/style.js"></script>
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+</body>
+</html>

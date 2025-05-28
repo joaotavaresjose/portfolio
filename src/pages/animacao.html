@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naves Espaciais</title>
+    <style>
+        body {
+            background-color: black;
+            overflow: hidden;
+        }
+        .space {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        .ship {
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            background: radial-gradient(circle, white 30%, gray 70%);
+            border-radius: 50%;
+        }
+        .ship1 { top: 30%; animation: fly 6s linear infinite; }
+        .ship2 { top: 50%; animation: fly 7s linear infinite; }
+        .ship3 { top: 70%; animation: fly 5s linear infinite; }
+        .ship4 { top: 70%; animation: fly 5s linear infinite; }
+
+        @keyframes fly {
+            from {
+                left: -80px;
+                transform: rotate(10deg);
+            }
+            to {
+                left: 100vw;
+                transform: rotate(-10deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="space">
+        <div class="ship ship1"></div>
+        <div class="ship ship2"></div>
+        <div class="ship ship3"></div>
+    </div>
+</body>
+</html>
