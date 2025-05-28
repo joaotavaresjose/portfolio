@@ -372,7 +372,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-fill-color: transparent;
     }
     @keyframes text-gradient {
       0% { background-position: 0% 50%;}
@@ -486,7 +485,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
     animation: about-title-gradient 6s linear infinite;
   }
   .skills-list {
@@ -686,7 +684,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
     animation: about-title-gradient 6s linear infinite;
   }
   .contact-info ul {
@@ -1583,10 +1580,6 @@
     transform: translateY(0px) translateX(5px) rotate(-10deg) scale(1);
   }
 }
-
-
-
-
 
 @keyframes twinkle {
   0% {
