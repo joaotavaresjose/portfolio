@@ -269,11 +269,7 @@
 }
 
 /* Ensure banner content is on top */
-.banner-photo, .banner-content {
-    z-index: 2; /* Should be above space-animation-container */
-    position: relative; /* Needed for z-index to work */
-    margin-bottom: 15px;
-}
+
     /* Animated floating particles */
     /*.particles {
       position: absolute;
@@ -354,7 +350,7 @@
     .banner-content {
       max-width: 540px;
       z-index: 2;
-      animation: fade-in-right 1.2s cubic-bezier(.77,0,.18,1) both;
+      /*animation: fade-in-right 1.2s cubic-bezier(.77,0,.18,1) both;*/
     }
     @keyframes fade-in-right {
       0% { opacity: 0; transform: translateX(60px);}
@@ -367,7 +363,7 @@
       margin: 0 0 10px 0;
       letter-spacing: 2px;
       text-shadow: 0 0 12px var(--neon-blue), 0 0 24px var(--neon-purple);
-      animation: neon-flicker 2.5s infinite alternate;
+      /*animation: neon-flicker 2.5s infinite alternate;*/
     }
     .banner-content h2 {
       font-size: 3.2rem;
@@ -377,7 +373,7 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-shadow: 0 0 24px var(--neon-blue), 0 0 48px var(--neon-purple);
-      animation: neon-flicker 2.5s infinite alternate, text-gradient 6s linear infinite;
+      /*animation: neon-flicker 2.5s infinite alternate, text-gradient 6s linear infinite;*/
       background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-pink), var(--neon-blue));
       background-size: 200% 200%;
       -webkit-background-clip: text;
@@ -396,7 +392,6 @@
       margin-bottom: 38px;
       letter-spacing: 0.5px;
       text-shadow: 0 0 8px var(--neon-blue);
-      animation: fade-in-up 1.8s 0.5s both;
     }
     @keyframes fade-in-up {
       0% { opacity: 0; transform: translateY(30px);}
