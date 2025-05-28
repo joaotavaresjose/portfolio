@@ -258,11 +258,22 @@
       justify-content: center;
       gap: 6vw;
       padding: 80px 7vw 0 7vw;
-      min-height: 70vh;
+      min-height: 50vh;
       position: relative;
       z-index: 1;
       overflow: hidden; /* Alterado para hidden para conter animações */
     }
+
+    /* Ensure existing particles are behind everything */
+.banner .particles {
+    z-index: 0; /* Should be behind space-animation-container */
+}
+
+/* Ensure banner content is on top */
+.banner-photo, .banner-content {
+    z-index: 2; /* Should be above space-animation-container */
+    position: relative; /* Needed for z-index to work */
+}
     /* Animated floating particles */
     .particles {
       position: absolute;
