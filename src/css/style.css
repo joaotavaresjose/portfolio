@@ -146,7 +146,6 @@
       background: linear-gradient(90deg, var(--neon-blue) 60%, var(--neon-purple));
       color: #181c24;
       box-shadow: 0 0 24px var(--neon-blue), 0 0 48px var(--neon-purple), 0 0 32px var(--neon-pink);
-      transform: scale(1.07) rotate(-1deg);
       animation: btn-glow 1.2s infinite alternate;
     }
     .btn-neon:hover::before {
