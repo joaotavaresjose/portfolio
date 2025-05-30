@@ -1665,3 +1665,124 @@
        }
 
 /* ... (rest of the CSS code) ... */
+
+.carousel {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+   background: rgba(10, 10, 30, 0.92);
+  border-radius: 24px;
+  border: 2.5px solid #00f0ff44;
+  box-shadow: 0 0 24px #00f0ff55, 0 2px 8px #000a;
+  padding: 48px 32px;
+  margin: 40px auto;
+  max-width: 1100px;
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  transform: none;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+}
+
+.carousel-track-container.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto !important;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  gap: 20px;
+}
+
+.card {
+  background: #181828;
+  border: 2px solid #00f0ff44;
+  border-radius: 18px;
+  box-shadow: 0 0 16px #00f0ff33;
+  padding: 24px 18px;
+  width: 300px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span {
+  background-color: #e8dcfb;
+  color: #6b21a8;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.btn {
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-align: center;
+  transition: background 0.3s;
+  flex: 1;
+}
+
+.btn.primary {
+  background-color: #9333ea;
+  color: white;
+}
+
+.btn.secondary {
+  border: 2px solid #9333ea;
+  color: #9333ea;
+  background: white;
+}
+
+.btn.primary:hover {
+  background-color: #7e22ce;
+}
+
+.btn.secondary:hover {
+  background-color: #f3e8ff;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-width: 80%;
+  }
+}
