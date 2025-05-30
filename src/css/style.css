@@ -1446,6 +1446,9 @@
   width: 300px;
   transition: transform 0.2s, box-shadow 0.2s;
   text-align: center;
+  flex: 0 0 calc(100% - 20px); /* padrão: 1 card */
+  max-width: calc(100% - 20px);
+  overflow: hidden;
 }
 
 .project-card:hover {
@@ -1693,9 +1696,10 @@
   scroll-behavior: auto !important;
 }
 
+
 .carousel-track {
   display: flex;
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s ease;
   gap: 20px;
 }
 
@@ -1741,8 +1745,7 @@
 }
 
 .btn.primary {
-  background-color: #9333ea;
-  color: white;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
 }
 
 .btn.secondary {
@@ -1784,5 +1787,28 @@
 @media (max-width: 768px) {
   .card {
     min-width: 80%;
+  }
+}
+
+/* Responsividade */
+
+@media (min-width: 600px) {
+  .project-card {
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 900px) {
+  .project-card {
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .project-card {
+    flex: 0 0 calc(25% - 20px);
+    max-width: calc(25% - 20px);
   }
 }
