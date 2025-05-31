@@ -1666,7 +1666,40 @@
             }
        }
 
-       .carousel-section {
+           .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #00f0ff, #a259ff, #ff00e0, #00ffb7, #00f0ff);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+             font-family: 'Orbitron', sans-serif;
+            color: #00f0ff;
+            font-size: 2.1rem;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px #00f0ff, 0 0 24px #a259ff;
+            background: linear-gradient(90deg, #00f0ff, #a259ff, #ff00e0, #00ffb7, #00f0ff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: about-title-gradient 6s linear infinite;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .carousel-section {
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
@@ -1692,7 +1725,7 @@
 
         .project-card {
             flex: 0 0 auto;
-           
+    
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -1846,6 +1879,19 @@
 
         /* Mobile - 1 card por vez */
         @media (max-width: 767px) {
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .section-header p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+            
+            .section-header {
+                margin-bottom: 30px;
+            }
+            
             .project-card {
                 width: 100%;
             }
@@ -1884,6 +1930,14 @@
 
         /* Extra small devices */
         @media (max-width: 480px) {
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-header p {
+                font-size: 0.95rem;
+            }
+            
             .carousel-section {
                 margin: 10px;
                 padding: 15px 8px;
