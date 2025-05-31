@@ -67,90 +67,140 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-const track = document.getElementById('carouselTrack');
-const nextBtn = document.getElementById('nextBtn');
-const prevBtn = document.getElementById('prevBtn');
-const container = document.querySelector('.carousel-track-container');
+class ResponsiveCarousel {
+            constructor() {
+                this.wrapper = document.getElementById('carouselWrapper');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.indicators = document.getElementById('indicators');
+                this.cards = document.querySelectorAll('.project-card');
+                this.currentIndex = 0;
+                this.cardsPerView = this.getCardsPerView();
+                
+                this.init();
+                this.setupEventListeners();
+            }
 
-let index = 0;
+            init() {
+                this.createIndicators();
+                this.updateCarousel();
+                this.updateIndicators();
+            }
 
-function updateCarousel() {
-  const card = track.querySelector('.project-card');
-  const cardStyle = window.getComputedStyle(card);
-  const cardWidth = card.offsetWidth + parseInt(cardStyle.marginRight || 20);
-  track.style.transform = `translateX(-${index * cardWidth}px)`;
-}
+            getCardsPerView() {
+                if (window.innerWidth >= 1024) return 3; // Desktop
+                if (window.innerWidth >= 768) return 2;  // Tablet
+                return 1; // Mobile
+            }
 
-nextBtn.addEventListener('click', () => {
-  const visibleCards = getVisibleCardCount();
-  const totalCards = track.children.length;
-  if (index < totalCards - visibleCards) {
-    index++;
-    updateCarousel();
-  }
-});
+            getTotalSlides() {
+                return Math.ceil(this.cards.length / this.cardsPerView);
+            }
 
-prevBtn.addEventListener('click', () => {
-  if (index > 0) {
-    index--;
-    updateCarousel();
-  }
-});
+            createIndicators() {
+                this.indicators.innerHTML = '';
+                const totalSlides = this.getTotalSlides();
+                
+                for (let i = 0; i < totalSlides; i++) {
+                    const indicator = document.createElement('div');
+                    indicator.className = 'indicator';
+                    indicator.addEventListener('click', () => this.goToSlide(i));
+                    this.indicators.appendChild(indicator);
+                }
+            }
 
-window.addEventListener('resize', () => {
-  updateCarousel();
-});
+            updateCarousel() {
+                const cardWidth = 100 / this.cardsPerView;
+                const translateX = -(this.currentIndex * cardWidth);
+                this.wrapper.style.transform = `translateX(${translateX}%)`;
+            }
 
-// ==== Arraste/Toque manual ====
-let isDragging = false;
-let startX;
-let scrollLeft;
+            updateIndicators() {
+                const indicators = this.indicators.querySelectorAll('.indicator');
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentIndex);
+                });
+            }
 
-container.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  container.classList.add('dragging');
-  startX = e.pageX - container.offsetLeft;
-  scrollLeft = container.scrollLeft;
-});
+            next() {
+                const maxIndex = this.getTotalSlides() - 1;
+                this.currentIndex = this.currentIndex >= maxIndex ? 0 : this.currentIndex + 1;
+                this.updateCarousel();
+                this.updateIndicators();
+            }
 
-container.addEventListener('mouseleave', () => {
-  isDragging = false;
-  container.classList.remove('dragging');
-});
+            prev() {
+                const maxIndex = this.getTotalSlides() - 1;
+                this.currentIndex = this.currentIndex <= 0 ? maxIndex : this.currentIndex - 1;
+                this.updateCarousel();
+                this.updateIndicators();
+            }
 
-container.addEventListener('mouseup', () => {
-  isDragging = false;
-  container.classList.remove('dragging');
-});
+            goToSlide(index) {
+                this.currentIndex = index;
+                this.updateCarousel();
+                this.updateIndicators();
+            }
 
-container.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-  e.preventDefault();
-  const x = e.pageX - container.offsetLeft;
-  const walk = (x - startX) * 1.5;
-  container.scrollLeft = scrollLeft - walk;
-});
+            handleResize() {
+                const newCardsPerView = this.getCardsPerView();
+                if (newCardsPerView !== this.cardsPerView) {
+                    this.cardsPerView = newCardsPerView;
+                    this.currentIndex = 0;
+                    this.createIndicators();
+                    this.updateCarousel();
+                    this.updateIndicators();
+                }
+            }
 
-// Touch
-container.addEventListener('touchstart', (e) => {
-  isDragging = true;
-  startX = e.touches[0].pageX - container.offsetLeft;
-  scrollLeft = container.scrollLeft;
-});
+            setupEventListeners() {
+                this.nextBtn.addEventListener('click', () => this.next());
+                this.prevBtn.addEventListener('click', () => this.prev());
+                
+                window.addEventListener('resize', () => this.handleResize());
+                
+                // Touch/Swipe support
+                let startX = 0;
+                let startY = 0;
+                let isDragging = false;
 
-container.addEventListener('touchend', () => {
-  isDragging = false;
-});
+                this.wrapper.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                    isDragging = true;
+                });
 
-container.addEventListener('touchmove', (e) => {
-  if (!isDragging) return;
-  const x = e.touches[0].pageX - container.offsetLeft;
-  const walk = (x - startX) * 1.5;
-  container.scrollLeft = scrollLeft - walk;
-});
+                this.wrapper.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                });
 
-// Detecta quantos cards estão visíveis com base na largura do container
-function getVisibleCardCount() {
-  const card = track.querySelector('.project-card');
-  return Math.floor(container.offsetWidth / card.offsetWidth);
-}
+                this.wrapper.addEventListener('touchend', (e) => {
+                    if (!isDragging) return;
+                    
+                    const endX = e.changedTouches[0].clientX;
+                    const endY = e.changedTouches[0].clientY;
+                    const diffX = startX - endX;
+                    const diffY = startY - endY;
+
+                    // Verificar se é um swipe horizontal
+                    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                        if (diffX > 0) {
+                            this.next();
+                        } else {
+                            this.prev();
+                        }
+                    }
+                    
+                    isDragging = false;
+                });
+
+                // Auto-play (opcional)
+                // setInterval(() => this.next(), 5000);
+            }
+        }
+
+        // Inicializar o carrossel quando o DOM estiver carregado
+        document.addEventListener('DOMContentLoaded', () => {
+            new ResponsiveCarousel();
+        });
