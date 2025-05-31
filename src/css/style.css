@@ -349,12 +349,10 @@
             color: #00ffff;
             text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
             margin-bottom: 2rem;
-            min-height: 2.5em;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            line-height: 1.1;
+            gap: 0.8rem;
             opacity: 1;
             visibility: visible;
             font-family: 'Orbitron', sans-serif;
@@ -365,6 +363,7 @@
             transform: translateY(0) !important;
             display: block !important;
             visibility: visible !important;
+            
         }
 
         @keyframes slideIn {
@@ -1632,11 +1631,20 @@
         }
 
         .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00f0ff;
             font-size: 2.5rem;
-            color: white;
-            margin-bottom: 15px;
             font-weight: 700;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px #00f0ff, 0 0 24px #a259ff;
+            background: linear-gradient(90deg, #00f0ff, #a259ff, #ff00e0, #00ffb7, #00f0ff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: about-title-gradient 6s linear infinite;
         }
 
         .section-header p {
@@ -1653,7 +1661,6 @@
             margin: 0 auto;
             overflow: hidden;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             padding: 40px 20px;
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
