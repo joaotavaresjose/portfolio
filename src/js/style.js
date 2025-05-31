@@ -70,18 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
 const track = document.getElementById('carouselTrack');
 const nextBtn = document.getElementById('nextBtn');
 const prevBtn = document.getElementById('prevBtn');
+const container = document.querySelector('.carousel-track-container');
 
 let index = 0;
 
-// Função de movimentação por botão
 function updateCarousel() {
-  const cardWidth = track.querySelector('.project-card').offsetWidth + 20;
+  const card = track.querySelector('.project-card');
+  const cardStyle = window.getComputedStyle(card);
+  const cardWidth = card.offsetWidth + parseInt(cardStyle.marginRight || 20);
   track.style.transform = `translateX(-${index * cardWidth}px)`;
 }
 
 nextBtn.addEventListener('click', () => {
-  const maxIndex = track.children.length - 1;
-  if (index < maxIndex) {
+  const visibleCards = getVisibleCardCount();
+  const totalCards = track.children.length;
+  if (index < totalCards - visibleCards) {
     index++;
     updateCarousel();
   }
@@ -94,12 +97,14 @@ prevBtn.addEventListener('click', () => {
   }
 });
 
-// === Scroll por arraste === //
+window.addEventListener('resize', () => {
+  updateCarousel();
+});
+
+// ==== Arraste/Toque manual ====
 let isDragging = false;
 let startX;
 let scrollLeft;
-
-const container = document.querySelector('.carousel-track-container');
 
 container.addEventListener('mousedown', (e) => {
   isDragging = true;
@@ -122,11 +127,11 @@ container.addEventListener('mousemove', (e) => {
   if (!isDragging) return;
   e.preventDefault();
   const x = e.pageX - container.offsetLeft;
-  const walk = (x - startX) * 1.5; // velocidade
+  const walk = (x - startX) * 1.5;
   container.scrollLeft = scrollLeft - walk;
 });
 
-// Touch para mobile
+// Touch
 container.addEventListener('touchstart', (e) => {
   isDragging = true;
   startX = e.touches[0].pageX - container.offsetLeft;
@@ -144,3 +149,8 @@ container.addEventListener('touchmove', (e) => {
   container.scrollLeft = scrollLeft - walk;
 });
 
+// Detecta quantos cards estão visíveis com base na largura do container
+function getVisibleCardCount() {
+  const card = track.querySelector('.project-card');
+  return Math.floor(container.offsetWidth / card.offsetWidth);
+}

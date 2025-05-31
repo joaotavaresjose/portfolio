@@ -1812,3 +1812,44 @@
     max-width: calc(25% - 20px);
   }
 }
+/* ... estilos anteriores ... */
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  gap: 20px;
+}
+
+.project-card {
+  flex: 0 0 calc(100% - 20px); /* padrão: 1 card */
+  max-width: calc(100% - 20px);
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsividade */
+
+@media (min-width: 600px) {
+  .project-card {
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 900px) {
+  .project-card {
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .project-card {
+    flex: 0 0 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+  }
+}
