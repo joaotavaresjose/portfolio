@@ -1018,14 +1018,7 @@
       0%, 49% { opacity: 1; }
       50%, 100% { opacity: 0; }
     }
-    .about-particles {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
- 
-  
+
     @media (max-width: 900px) {
       .about-container {
         flex-direction: column;
@@ -1404,47 +1397,6 @@
 }
 
 /* Neon glow effect for the projects section */
-
-.projects-container {
-  background: rgba(10, 10, 30, 0.92);
-  border-radius: 24px;
-  border: 2.5px solid #00f0ff44;
-  box-shadow: 0 0 24px #00f0ff55, 0 2px 8px #000a;
-  padding: 48px 32px;
-  margin: 40px auto;
-  max-width: 1100px;
-  position: relative;
-  z-index: 2;
-  opacity: 1;
-  transform: none;
-}
-
-/* ...existing code... */
-
-.projects-container h2 {
-  color: #00f0ff;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 12px;
-  letter-spacing: 2px;
-  text-shadow: 0 0 8px #00f0ff88;
-  text-align: center;
-}
-
-.projects-container p {
-  color: #b0eaff;
-  font-size: 1.15rem;
-  margin-bottom: 32px;
-  text-align: center;
-}
-
-.project-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  justify-content: center;
-}
-
 .project-card {
   background: #181828;
   border: 2px solid #00f0ff44;
@@ -1466,57 +1418,7 @@
   border-color: #00f0ff;
 }
 
-.project-card img {
-   width: 70%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-}
 
-.project-card h3 {
-  color: #00f0ff;
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.project-card p {
-  color: #e0f7fa;
-  font-size: 1rem;
-  margin-bottom: 18px;
-}
-
-.project-card .btn-neon {
-  padding: 8px 24px;
-  font-size: 1rem;
-  border-radius: 8px;
-}
-
-/* Animação de partículas no contêiner de contato */
-.contact-particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* Permite interação com o conteúdo abaixo */
-}
-
-
-
-
-@keyframes twinkle {
-  0% {
-    opacity: 0.3;
-    transform: scale(0.7);
-    box-shadow: 0 0 3px #fff, 0 0 7px #fff, 0 0 10px var(--neon-blue);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.1);
-    box-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 20px var(--neon-blue);
-  }
-}
 
  
 
