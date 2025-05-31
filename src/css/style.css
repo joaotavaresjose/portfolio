@@ -1443,15 +1443,12 @@
             text-fill-color: transparent;
             animation: about-title-gradient 6s linear infinite;
         }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
+        @keyframes about-title-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-
+        
         .carousel-section {
             position: relative;
             max-width: 1200px;
