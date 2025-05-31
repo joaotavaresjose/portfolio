@@ -257,6 +257,10 @@
       nav.open {
         right: 0;
       }
+       .typing-text{
+              flex-direction: column;
+              align-items: center;
+            }
       nav a, .btn-neon {
         font-size: 1.2rem;
         width: 100%;
@@ -485,6 +489,10 @@
             .banner-content p {
                 margin-bottom: 2rem;
             }
+              .typing-text{
+              flex-direction: column;
+              align-items: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -508,6 +516,10 @@
 
             .banner-buttons {
                 gap: 1rem;
+            }
+            .typing-text{
+              flex-direction: column;
+              align-items: center;
             }
         }
 
@@ -680,6 +692,10 @@
       width: 18px;
       height: 18px;
     }
+     .typing-text{
+              flex-direction: column;
+              align-items: center;
+            }
   }
   @media (max-width: 600px) {
     .skills-list {
