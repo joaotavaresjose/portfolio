@@ -259,6 +259,7 @@
        .typing-text{
               flex-direction: column;
               align-items: center;
+              font-size: clamp(2rem, 4vw, 3rem);
             }
       nav a, .btn-neon {
         font-size: 1.2rem;
@@ -672,6 +673,12 @@
       width: 16px;
       height: 16px;
     }
+    .typing-text{
+              flex-direction: column;
+              align-items: center;
+               font-size: clamp(2rem, 4vw, 3rem);
+            }
+
   }
 
    .contact {
