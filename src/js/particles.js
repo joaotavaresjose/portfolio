@@ -34,32 +34,6 @@
       }
     });
 
-     // Efeito de máquina de escrever apenas no h2
-    function typeWriter(element, text, delay = 250, callback) { // <-- delay ainda mais lento
-      let i = 0;
-      element.innerHTML = '';
-      const cursor = document.createElement('span');
-      cursor.className = 'typewriter-cursor';
-      cursor.textContent = '|';
-      element.appendChild(cursor);
-
-      function type() {
-        if (i <= text.length) {
-          element.innerHTML = text.slice(0, i) + cursor.outerHTML;
-          i++;
-          setTimeout(type, delay);
-        } else {
-          element.innerHTML = text; // Remove cursor ao terminar
-          if (callback) callback();
-        }
-      }
-      type();
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const h2 = document.getElementById('about-typer-title');
-      typeWriter(h2, 'Sobre Mim', 200); // <-- delay ainda mais lento
-    });
 
       // Simulação de envio de formulário (apenas frontend)
   document.addEventListener('DOMContentLoaded', function () {
