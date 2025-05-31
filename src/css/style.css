@@ -32,7 +32,7 @@
       transition: box-shadow 0.2s;
     }
     body {
-      padding-top: 112px; /* espaço para header fixo */
+      padding-top: 10px; /* espaço para header fixo */
     }
     .logo {
       font-family: 'Orbitron', sans-serif;
@@ -195,8 +195,37 @@
       header {
         padding: 24px 4vw 0 4vw;
       }
+       .menu-toggle {
+        display: flex;
+      }
       nav {
-        gap: 24px;
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        height: 100vh;
+        width: 70vw;
+        max-width: 320px;
+        background: rgba(10,14,23,0.98);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 32px 32px 32px;
+        gap: 32px;
+        box-shadow: -8px 0 32px 0 var(--neon-blue);
+        transition: right 0.4s cubic-bezier(.77,0,.18,1);
+        z-index: 99;
+      }
+      nav.open {
+        right: 0;
+      }
+      nav a, .btn-neon {
+        font-size: 1.2rem;
+        width: 100%;
+        text-align: left;
+        margin-left: 0;
+      }
+      .btn-neon {
+        margin-top: 18px;
       }
     }
     @media (max-width: 700px) {
@@ -250,206 +279,302 @@
       display: block;
       opacity: 1;
     }
-    /* BANNER */
     .banner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6vw;
-      padding: 80px 7vw 0 7vw;
-      min-height: 70vh;
-      position: relative;
-      z-index: 1;
-      overflow: hidden; /* Alterado para hidden para conter animações */
-    }
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0f0f23 70%, #000000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-    /* Ensure existing particles are behind everything */
-.banner .particles {
-    z-index: 0; /* Should be behind space-animation-container */
-}
+        /* Estrelas sutis */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
 
-/* Ensure banner content is on top */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
 
-    /* Animated floating particles */
-    /*.particles {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1; /* Acima da animação de foguetes/estrelas, abaixo do conteúdo */
-   /* }*/
-    /*.particle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.18;
-      filter: blur(2px);
-      animation: particle-move 12s linear infinite;
-      background: radial-gradient(circle, var(--neon-blue) 0%, transparent 80%);
-    }
-    .particle.p1 { width: 32px; height: 32px; left: 10%; top: 30%; animation-delay: 0s;}
-    .particle.p2 { width: 18px; height: 18px; left: 80%; top: 10%; animation-delay: 2s; background: radial-gradient(circle, var(--neon-purple) 0%, transparent 80%);}
-    .particle.p3 { width: 22px; height: 22px; left: 60%; top: 80%; animation-delay: 4s; background: radial-gradient(circle, var(--neon-pink) 0%, transparent 80%);}
-    .particle.p4 { width: 14px; height: 14px; left: 40%; top: 60%; animation-delay: 6s; background: radial-gradient(circle, var(--neon-green) 0%, transparent 80%);}
-    .particle.p5 { width: 26px; height: 26px; left: 85%; top: 65%; animation-delay: 8s;}
-    @keyframes particle-move {
-      0% { transform: translateY(0) scale(1);}
-      50% { transform: translateY(-40px) scale(1.2);}
-      100% { transform: translateY(0) scale(1);}
-    }*/
-    .banner-photo {
-      position: relative;
-      width: 320px;
-      height: 370px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2; /* Acima das partículas e animação de foguetes */
-      animation: float-photo 4s ease-in-out infinite alternate;
-    }
-    @keyframes float-photo {
-      0% { transform: translateY(0);}
-      100% { transform: translateY(-18px);}
-    }
-    .neon-frame {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 24px;
-      background: none;
-      border: none;
-      z-index: 2;
-      pointer-events: none;
-      box-shadow:
-        0 0 24px 4px var(--neon-blue),
-        0 0 48px 8px var(--neon-purple),
-        0 0 0 8px rgba(0,255,255,0.08) inset;
-      animation: neon-border 3s linear infinite alternate, rotate-frame 12s linear infinite;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    }
-    @keyframes neon-border {
-      0% { box-shadow: 0 0 24px 4px var(--neon-blue), 0 0 48px 8px var(--neon-purple);}
-      100% { box-shadow: 0 0 48px 8px var(--neon-purple), 0 0 24px 4px var(--neon-blue);}
-    }
-    @keyframes rotate-frame {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
-    }
-    .banner-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 24px;
-      filter: brightness(0.92) saturate(1.2);
-      z-index: 1;
-      box-shadow: 0 0 32px 0 var(--neon-blue);
-      animation: img-glow 3s infinite alternate;
-    }
-    @keyframes img-glow {
-      0% { filter: brightness(0.92) saturate(1.2) drop-shadow(0 0 0 var(--neon-blue)); }
-      100% { filter: brightness(1.05) saturate(1.3) drop-shadow(0 0 16px var(--neon-blue)); }
-    }
-    .banner-content {
-      max-width: 540px;
-      z-index: 2;
-      animation: fade-in-right 1.2s cubic-bezier(.77,0,.18,1) both;
-    }
-    @keyframes fade-in-right {
-      0% { opacity: 0; transform: translateX(60px);}
-      100% { opacity: 1; transform: translateX(0);}
-    }
-    .banner-content h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.2rem;
-      color: var(--neon-blue);
-      margin: 0 0 10px 0;
-      letter-spacing: 2px;
-      text-shadow: 0 0 12px var(--neon-blue), 0 0 24px var(--neon-purple);
-      /*animation: neon-flicker 2.5s infinite alternate;*/
-    }
-    .banner-content h2 {
-      font-size: 3.2rem;
-      font-family: 'Orbitron', sans-serif;
-      color: var(--neon-blue);
-      margin: 0 0 18px 0;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-shadow: 0 0 24px var(--neon-blue), 0 0 48px var(--neon-purple);
-      /*animation: neon-flicker 2.5s infinite alternate, text-gradient 6s linear infinite;*/
-      background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-pink), var(--neon-blue));
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-    @keyframes text-gradient {
-      0% { background-position: 0% 50%;}
-      50% { background-position: 100% 50%;}
-      100% { background-position: 0% 50%;}
-    }
-    .banner-content p {
-      font-size: 1.2rem;
-      color: #b6eaff;
-      margin-bottom: 38px;
-      letter-spacing: 0.5px;
-      text-shadow: 0 0 8px var(--neon-blue);
-    }
-    @keyframes fade-in-up {
-      0% { opacity: 0; transform: translateY(30px);}
-      100% { opacity: 1; transform: translateY(0);}
-    }
-    .banner-buttons {
-      display: flex;
-      gap: 24px;
-      animation: fade-in-up 2.2s 1s both;
-    }
-    /* RESPONSIVO */
-    @media (max-width: 900px) {
-      .banner {
-        flex-direction: column-reverse;
-        gap: 40px;
-        padding-top: 40px;
-      }
-      .banner-photo {
-        width: 220px;
-        height: 260px;
-      }
-       .banner-content {
-        text-align: center;
-      }
+        .star:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 30%; left: 80%; animation-delay: 1s; }
+        .star:nth-child(3) { top: 60%; left: 20%; animation-delay: 2s; }
+        .star:nth-child(4) { top: 70%; left: 90%; animation-delay: 0.5s; }
+        .star:nth-child(5) { top: 40%; left: 70%; animation-delay: 1.5s; }
+        .star:nth-child(6) { top: 15%; left: 60%; animation-delay: 2.5s; }
 
-      .banner-content h2 {
-        font-size: 2.2rem;
-      }
-    }
-    @media (max-width: 600px) {
-      header, .banner {
-        padding-left: 4vw;
-        padding-right: 4vw;
-      }
-      .banner-content h2 {
-        font-size: 1.4rem;
-      }
-      .banner-content h1 {
-        font-size: 1.1rem;
-      }
-      .banner-photo {
-        width: 140px;
-        height: 160px;
-      }
-       .banner-buttons{
-        flex-direction: column;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-      }
-        .banner-buttons .btn-neon{
-         display: flex;
-         justify-content: center;
-         margin: auto;
-         width: 90%;
-      }
-    }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
 
+        /* Naves espaciais */
+        .ship {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+        }
+
+        .ship1 {
+            top: 15%;
+            animation: flyAcross1 12s linear infinite;
+        }
+
+        .ship2 {
+            top: 70%;
+            animation: flyAcross2 15s linear infinite 3s;
+        }
+
+        .ship3 {
+            top: 45%;
+            animation: flyAcross3 18s linear infinite 6s;
+        }
+
+        @keyframes flyAcross1 {
+            0% { left: -60px; transform: rotate(45deg); }
+            100% { left: calc(100% + 60px); transform: rotate(45deg); }
+        }
+
+        @keyframes flyAcross2 {
+            0% { right: -60px; transform: rotate(-135deg); }
+            100% { right: calc(100% + 60px); transform: rotate(-135deg); }
+        }
+
+        @keyframes flyAcross3 {
+            0% { left: -60px; top: 45%; transform: rotate(25deg); }
+            50% { left: 50%; top: 25%; transform: rotate(25deg); }
+            100% { left: calc(100% + 60px); top: 45%; transform: rotate(25deg); }
+        }
+
+        /* Conteúdo do banner */
+        .banner-content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            max-width: 90%;
+            width: 100%;
+        }
+
+        .animate-text {
+            font-size: clamp(2.5rem, 3vw, 2rem);
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ffff, #0080ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.3));
+            animation: glow 2s ease-in-out infinite alternate;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .typing-text {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            min-height: 2.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            line-height: 1.1;
+            opacity: 1;
+            visibility: visible;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .typing-line {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            display: block !important;
+            visibility: visible !important;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.3)); }
+            to { filter: drop-shadow(0 0 35px rgba(0, 255, 255, 0.6)); }
+        }
+
+        .banner-content p {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            color: #b0b0b0;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Botões neon arredondados */
+        .banner-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            text-align: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn-neon {
+            background: transparent;
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            font-size: clamp(1rem, 2vw, 1rem);
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.2),
+                inset 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        .btn-neon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-neon:hover::before {
+            left: 100%;
+        }
+
+        .btn-neon:hover {
+            color: #fff;
+            border-color: #8a2be2;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.6),
+                0 0 50px rgba(138, 43, 226, 0.4),
+                inset 0 0 30px rgba(0, 255, 255, 0.2);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .banner-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .btn-neon {
+                width: 280px;
+                padding: 16px 32px;
+            }
+
+            .ship {
+                width: 30px;
+                height: 30px;
+            }
+
+            .banner-content {
+                padding: 0 1rem;
+            }
+
+            .animate-text {
+                margin-bottom: 0.5rem;
+            }
+
+            .typing-text {
+                margin-bottom: 1.5rem;
+            }
+
+            .banner-content p {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .animate-text {
+                font-size: 2rem;
+            }
+
+            .typing-text {
+                font-size: 2.5rem;
+            }
+
+            .banner-content p {
+                font-size: 1rem;
+            }
+
+            .btn-neon {
+                width: 250px;
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+
+            .banner-buttons {
+                gap: 1rem;
+            }
+        }
+
+        /* Efeito de partículas sutis */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, rgba(0,255,255,0.6), transparent);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { left: 15%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 85%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 45%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 65%; animation-delay: 6s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; transform: scale(1); }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) scale(0); }
+        }
      .typewriter-cursor {
       display: inline-block;
       width: 1ch;
@@ -1666,29 +1791,17 @@
             }
        }
 
-           .section-header {
+ .section-header {
             text-align: center;
             margin-bottom: 40px;
         }
 
         .section-header h2 {
             font-size: 2.5rem;
-            background: linear-gradient(90deg, #00f0ff, #a259ff, #ff00e0, #00ffb7, #00f0ff);
+            color: white;
             margin-bottom: 15px;
             font-weight: 700;
             text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-             font-family: 'Orbitron', sans-serif;
-            color: #00f0ff;
-            font-size: 2.1rem;
-            margin-bottom: 18px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 12px #00f0ff, 0 0 24px #a259ff;
-            background: linear-gradient(90deg, #00f0ff, #a259ff, #ff00e0, #00ffb7, #00f0ff);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: about-title-gradient 6s linear infinite;
         }
 
         .section-header p {
@@ -1725,7 +1838,6 @@
 
         .project-card {
             flex: 0 0 auto;
-    
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);

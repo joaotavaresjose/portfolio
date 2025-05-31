@@ -204,3 +204,60 @@ class ResponsiveCarousel {
         document.addEventListener('DOMContentLoaded', () => {
             new ResponsiveCarousel();
         });
+
+         // Textos para alternar
+        const texts = [
+            ['Desenvolvedor', 'FRONT-END'],
+            ['Designer', 'CRIATIVO'],
+            ['Programador', 'INOVADOR'],
+            ['Criador', 'DIGITAL'],
+            ['Artista', 'VISUAL']
+        ];
+
+        let currentIndex = 0;
+        const typingElement = document.getElementById('typingText');
+
+        function changeText() {
+            // Fade out
+            typingElement.style.opacity = '0';
+            typingElement.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % texts.length;
+                const currentText = texts[currentIndex];
+                
+                typingElement.innerHTML = `
+                    <div class="typing-line">${currentText[0]}</div>
+                    <div class="typing-line">${currentText[1]}</div>
+                `;
+                
+                // Fade in
+                typingElement.style.opacity = '1';
+                typingElement.style.transform = 'translateY(0)';
+            }, 500);
+        }
+
+        // Iniciar animação de troca de texto
+        setInterval(changeText, 5000);
+
+        // Efeito de hover aprimorado nos botões
+        document.querySelectorAll('.btn-neon').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.animation = 'pulse 0.6s ease-in-out';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.animation = '';
+            });
+        });
+
+        // CSS para animação de pulse
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: translateY(-3px) scale(1.05); }
+                50% { transform: translateY(-3px) scale(1.08); }
+                100% { transform: translateY(-3px) scale(1.05); }
+            }
+        `;
+        document.head.appendChild(style);

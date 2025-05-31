@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Interação de mouse na seção de Projetos
-    const projectsContainer = document.getElementById('projects-container');
+    const projectsContainer = document.getElementById('carousel-section');
     if(projectsContainer){
        
     }
