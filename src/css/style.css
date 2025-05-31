@@ -146,7 +146,6 @@
       background: linear-gradient(90deg, var(--neon-blue) 60%, var(--neon-purple));
       color: #181c24;
       box-shadow: 0 0 24px var(--neon-blue), 0 0 48px var(--neon-purple), 0 0 32px var(--neon-pink);
-      animation: btn-glow 1.2s infinite alternate;
     }
     .btn-neon:hover::before {
       opacity: 0.22;
@@ -523,33 +522,7 @@
             }
         }
 
-        /* Efeito de partículas sutis */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: radial-gradient(circle, rgba(0,255,255,0.6), transparent);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .particle:nth-child(1) { left: 15%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 85%; animation-delay: 2s; }
-        .particle:nth-child(3) { left: 45%; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 65%; animation-delay: 6s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
-            10% { opacity: 1; transform: scale(1); }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) scale(0); }
-        }
+       
      .typewriter-cursor {
       display: inline-block;
       width: 1ch;
@@ -593,7 +566,6 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
-    animation: about-title-gradient 6s linear infinite;
   }
   .skills-list {
     display: flex;
@@ -745,18 +717,7 @@
     border-radius: 50%;
     opacity: 0.12;
     filter: blur(2px);
-    animation: contact-particle-move 12s linear infinite;
     background: radial-gradient(circle, #00f0ff 0%, transparent 80%);
-  }
-  .contact-particle.p1 { width: 28px; height: 28px; left: 12%; top: 70%; animation-delay: 0s;}
-  .contact-particle.p2 { width: 18px; height: 18px; left: 85%; top: 18%; animation-delay: 2s; background: radial-gradient(circle, #a259ff 0%, transparent 80%);}
-  .contact-particle.p3 { width: 22px; height: 22px; left: 60%; top: 90%; animation-delay: 4s; background: radial-gradient(circle, #ff00e0 0%, transparent 80%);}
-  .contact-particle.p4 { width: 16px; height: 16px; left: 35%; top: 25%; animation-delay: 6s; background: radial-gradient(circle, #00ffb7 0%, transparent 80%);}
-  .contact-particle.p5 { width: 32px; height: 32px; left: 80%; top: 75%; animation-delay: 8s;}
-  @keyframes contact-particle-move {
-    0% { transform: translateY(0) scale(1);}
-    50% { transform: translateY(-40px) scale(1.2);}
-    100% { transform: translateY(0) scale(1);}
   }
 
   .contact-container {
@@ -767,10 +728,6 @@
     gap: 40px;
     justify-content: space-between;
    
-  }
-  @keyframes contact-fade-in {
-    from { opacity: 0; transform: translateY(60px);}
-    to { opacity: 1; transform: translateY(0);}
   }
 
   .contact-info {
