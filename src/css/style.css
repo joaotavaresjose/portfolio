@@ -259,7 +259,7 @@
        .typing-text{
               flex-direction: column;
               align-items: center;
-              font-size: clamp(2rem, 4vw, 3rem);
+              font-size: clamp(2rem, 3vw, 2.3rem);
             }
       nav a, .btn-neon {
         font-size: 1.2rem;
@@ -328,7 +328,7 @@
         }
 
         .typing-text {
-            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-size: clamp(2rem, 5vw, 3.0rem);
             font-weight: bold;
             color: #00ffff;
             text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
@@ -457,14 +457,13 @@
                 margin-bottom: 0.5rem;
             }
 
-            .typing-text {
-                margin-bottom: 1.5rem;
-            }
 
             .banner-content p {
                 margin-bottom: 2rem;
             }
               .typing-text{
+                 margin-bottom: 1.5rem;
+                font-size: clamp(2rem, 3vw, 3rem);
               flex-direction: column;
               align-items: center;
             }
@@ -476,7 +475,8 @@
             }
 
             .typing-text {
-                font-size: 2.5rem;
+                 margin-bottom: 1.5rem;
+                font-size: clamp(2rem, 3vw, 3rem);
             }
 
             .banner-content p {
@@ -495,6 +495,7 @@
             .typing-text{
               flex-direction: column;
               align-items: center;
+              font-size: clamp(2rem, 3vw, 3rem);
             }
         }
 
@@ -676,7 +677,7 @@
     .typing-text{
               flex-direction: column;
               align-items: center;
-               font-size: clamp(2rem, 4vw, 3rem);
+               font-size: clamp(2rem, 3vw, 3rem);
             }
 
   }
